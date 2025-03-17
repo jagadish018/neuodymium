@@ -13,7 +13,23 @@ try {
   console.log("\n", date.toISOString());
   
 
-  const response2 = await axios.get(`${baseURL}/`);
+  const response2 = await axios.get(`${baseURL}/environment`);
+  const nodeVersion = process.version;
+  const platform = process.platform;
+  console.log(`Node.js version: ${nodeVersion}`);
+  console.log(`Platform: ${platform}`);
+
+
+
+  const response3 = await axios.get(`${baseURL}/puppet?k=8`);
+  const puppetVersion = response3.data;
+  console.log(puppetVersion);
+
+  const numbers: number[] = [];
+  const response4 = await axios.post(`${baseURL}/numbers`);
+  
+  
+
 } catch (error) {
   console.error(error);
 }
